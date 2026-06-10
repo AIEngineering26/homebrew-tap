@@ -5,21 +5,21 @@
 class Promptvm < Formula
   desc "The official CLI for the PromptVM platform"
   homepage "https://github.com/AIEngineering26/promptvm-cli"
-  version "0.2.0"
+  version "0.2.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/AIEngineering26/promptvm-cli/releases/download/v0.2.0/promptvm_0.2.0_darwin_amd64.tar.gz"
-      sha256 "4611c62dc35722c30fa432fa89c7d72e2d51ade076679eb7efa659ff27012908"
+      url "https://github.com/AIEngineering26/promptvm-cli/releases/download/v0.2.1/promptvm_0.2.1_darwin_amd64.tar.gz"
+      sha256 "897c20f3720dd1d4a770001ef1c06bd9ab1527387d5f6e4c42129efa079d89fa"
 
       define_method(:install) do
         bin.install "promptvm"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/AIEngineering26/promptvm-cli/releases/download/v0.2.0/promptvm_0.2.0_darwin_arm64.tar.gz"
-      sha256 "4a936dd64d24f4cdcd90903fb272869c5b944c0eedf62502990006e52ad3abb2"
+      url "https://github.com/AIEngineering26/promptvm-cli/releases/download/v0.2.1/promptvm_0.2.1_darwin_arm64.tar.gz"
+      sha256 "c77498b3802d6c456853352dfb53428266d5db7cabf919eec6f7140e379a89c1"
 
       define_method(:install) do
         bin.install "promptvm"
@@ -29,15 +29,15 @@ class Promptvm < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/AIEngineering26/promptvm-cli/releases/download/v0.2.0/promptvm_0.2.0_linux_amd64.tar.gz"
-      sha256 "4594daba9caf5a7c5f801e1f0d019c2b22d93f7f418599533417242bc3103928"
+      url "https://github.com/AIEngineering26/promptvm-cli/releases/download/v0.2.1/promptvm_0.2.1_linux_amd64.tar.gz"
+      sha256 "99a64509caa340fbf0789ab5282bf8589e654d2486c7f04846086e0c0ada9069"
       define_method(:install) do
         bin.install "promptvm"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/AIEngineering26/promptvm-cli/releases/download/v0.2.0/promptvm_0.2.0_linux_arm64.tar.gz"
-      sha256 "659a502d0b7dacd89a54699d714e921c25811f0c6970b0fa31a69e7ed36f018c"
+      url "https://github.com/AIEngineering26/promptvm-cli/releases/download/v0.2.1/promptvm_0.2.1_linux_arm64.tar.gz"
+      sha256 "089df099b103d022c846873a491ac50d490565fc3767c5a8cee1af88f13b67d9"
       define_method(:install) do
         bin.install "promptvm"
       end
