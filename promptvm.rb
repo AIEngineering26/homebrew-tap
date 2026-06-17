@@ -5,21 +5,21 @@
 class Promptvm < Formula
   desc "The official CLI for the PromptVM platform"
   homepage "https://github.com/AIEngineering26/promptvm-cli"
-  version "0.4.0"
+  version "0.5.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/AIEngineering26/promptvm-cli/releases/download/v0.4.0/promptvm_0.4.0_darwin_amd64.tar.gz"
-      sha256 "17a3aff34bbe01811b7e8f0257b0aa0595d9f9fbdcd1294e0a911a00363629a7"
+      url "https://github.com/AIEngineering26/promptvm-cli/releases/download/v0.5.0/promptvm_0.5.0_darwin_amd64.tar.gz"
+      sha256 "38a2fb206ab0abd0f6ac630dbb11b2e51c33246ad71e33022cf92cef2df5afed"
 
       define_method(:install) do
         bin.install "promptvm"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/AIEngineering26/promptvm-cli/releases/download/v0.4.0/promptvm_0.4.0_darwin_arm64.tar.gz"
-      sha256 "a0a01836412b7efb1faa3be1c7348d8e7c6443bd1b7ca5209875c21b134db95c"
+      url "https://github.com/AIEngineering26/promptvm-cli/releases/download/v0.5.0/promptvm_0.5.0_darwin_arm64.tar.gz"
+      sha256 "c7a226e54d2a67f9d03505352c5b5443999c44d44fda0a52304fee0d57714c1f"
 
       define_method(:install) do
         bin.install "promptvm"
@@ -29,19 +29,29 @@ class Promptvm < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/AIEngineering26/promptvm-cli/releases/download/v0.4.0/promptvm_0.4.0_linux_amd64.tar.gz"
-      sha256 "49b3f5cab36ab71ede507d972ddbae161fb67b7f10772c6b2d6dd8883e89baa0"
+      url "https://github.com/AIEngineering26/promptvm-cli/releases/download/v0.5.0/promptvm_0.5.0_linux_amd64.tar.gz"
+      sha256 "f7ff1464301cdc7a7e8e53ed43a928426913def5f026b71d06c79492ae9aadcd"
       define_method(:install) do
         bin.install "promptvm"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/AIEngineering26/promptvm-cli/releases/download/v0.4.0/promptvm_0.4.0_linux_arm64.tar.gz"
-      sha256 "7141d7e2a31094078181d2b63e191b76d38b130f506faf860c3be938974cd159"
+      url "https://github.com/AIEngineering26/promptvm-cli/releases/download/v0.5.0/promptvm_0.5.0_linux_arm64.tar.gz"
+      sha256 "b8654a369b40ef7bcf7a6ee29c0e56b4469bf526bbd0d72941a05f05ab795ec8"
       define_method(:install) do
         bin.install "promptvm"
       end
     end
+  end
+
+  def caveats
+    <<~EOS
+      On first run, promptvm installs a bundled "promptvm" agent skill into your
+      Claude Code (~/.claude/skills) and Codex (~/.agents/skills) directories so
+      agents already know how to use PromptVM. Manage it with `promptvm agent`
+      (install / status / uninstall); disable auto-install with
+      PROMPTVM_NO_AGENT_SKILL=1.
+    EOS
   end
 
   test do
